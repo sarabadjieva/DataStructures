@@ -1,0 +1,92 @@
+Стек АТД
+	АТД; може да се разглежда като ограничена линейна структура от данни с достъп до първи/последен елемент
+	LIFO
+	add at begin, remove from end
+	push/pop -> T=O(1)
+	top, size, isEmpty -> T=O(1)
+	FullStackException, EmptyStackException
+
+Опашка АТД
+	АТД; може да се разглежда като ограничена линейна структура от данни с достъп до първи/последен елемент
+	FIFO
+	add at end, remove from begin
+	enqueue/dequeue -> T=O(1)
+	front, size, isEmpty -> T=O(1)
+	FullQueueException, EmptyQueueException
+
+Опашка с два края АТД(дек)
+	АТД; може да се разглежда като ограничена линейна структура от данни с достъп до първи/последен елемент
+	insertFirst, insertLast
+	removeFirst, removeLast
+	first, last, size, isEmpty
+
+Едносвързан списък
+	конкретна структура от данни -> не е АТД
+	from nodes/възли(елемент + указател към следващия)
+
+Двусвързан списък
+	конкретна структура от данни -> не е АТД
+	from nodes/възли(указател към предишния + елемент + указател към следващия)
+	добавени възли trailer и header
+	добавяне и и зваждане на елементи -> T=O(1)
+
+
+ранг = индекс
+позиция = обект-възел
+
+Вектор
+	АТД; множество от линейно наредени елементи(редици) с достъп до произволен елемент
+	разширение на масив
+	ранг - брой на елементите преди даден в редицата
+	изключение при неправилен ранг
+	elemAtRank -> T=O(1), replaceAtRank, insertAtRank -> T=O(n), removeAtRank -> T=O(n)
+	
+	при реализация с масив:
+		използвана памет от структурата при реализацияс масивO(n)
+		elemAtRank, replaceAtRank, insertAtRank  -> T=O(1)
+		insertAtRank, removeAtRank -> T=O(n)
+
+	при реализация с кръгов масив:
+		elemAtRank, replaceAtRank, insertAtRank, insertAtRank, removeAtRank -> T=O(1)
+
+	size, isEmpty
+
+Списък
+	АТД; множество от линейно наредени елементи(редици) с достъп до произволен елемент
+	разширение на свързан списък
+	nullposition -> не задава никой обект
+	позициите предоставят еднен изглед на различни начини за съхранение на данни като - клетка от масив / възел от свързан списък
+		Object& element() -> return element at position
+		bool isNull() -> true if nullposition
+	моделира редица от позиции, съхраняващи произволни обекти
+	преди/след релация между позициите
+	size, isEmpty
+	isFirst(p), isLast(p)
+	first, last, before(p), after(p)
+	replaceElement(p,o), swapElemenets(p,q)
+	insertBefore(p, o), insertAfter(p, o) return positionQ, insertFirst(o), insertLast(o)
+	remove(p)
+
+	реализация с двойно свързан списък:
+		осигурява естествена реализация на списък АТД
+		възлите са реализация на позиции АТД и съхраняват: елемент на списъка, връзка към предишния + следващия възел
+		два аспециални възела - trailer, header
+		използваната памет от списък -> O(n)
+		използвана памет от елемент -> O(1)
+		all operations -> T=O(1)
+		element() -> T=O(1)
+
+Редица
+	АТД; множество от линейно наредени елементи(редици) с достъп до произволен елемент
+	обединение на понятията вектор и списък
+	достъп до елементи -> Rank/Position
+	size(), isEmpty()
+	вектор-базирани:
+		elemAtRank, replaceAtRank(r, o), insertAtRank(r, o), removeAtRank(r, o)
+	списък-базирани:
+		first, last, before(p), after(p), replaceElement(p, o), swapElements(p,q)
+		insertBefore(p, o), insertAfter(p, o), insertFirst, insertLast, remove
+	мостови:
+		atRank(r), rankOf(p)
+
+Итератори - стр 36
