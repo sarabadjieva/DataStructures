@@ -14,13 +14,14 @@
 #include "ListMap.h"
 #include "HashMap.h"
 #include "SearchTree.h"
+#include "Sorting.h"
 #include <cstdlib>
 
 class Tests
 {
 public:
 	static void run(){
-        testQueue();
+        /*testQueue();
         std::cout << "--------------------\n";
         std::cout << "--------------------\n";
         testStack();
@@ -54,6 +55,9 @@ public:
         std::cout << "--------------------\n";
         std::cout << "--------------------\n";
         testSearchTree();
+        std::cout << "--------------------\n";
+        std::cout << "--------------------\n";*/
+        testSorting();
     }
 
     static void testQueue();
@@ -68,6 +72,8 @@ public:
     static void testListMap();
     static void testHashMap();
     static void testSearchTree();
+
+    static void testSorting();
 
 private:
     static const int testSize = 10;

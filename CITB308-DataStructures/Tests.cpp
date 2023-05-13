@@ -205,3 +205,43 @@ void Tests::testSearchTree() {
     tree.print();
     std::cout << tree.size() << std::endl;
 }
+
+void Tests::testSorting()
+{
+    int size = 10;
+    int arr[] = {1, 9, 2, 7, 6, 4, 3, 8, 5, 1};
+    int testArr[10] = {};
+
+    std::copy(arr, arr + size, testArr);
+    Sorting::bubble_sort(testArr, size);
+    std::cout << '\n';
+
+    std::copy(arr, arr + size, testArr);
+    Sorting::insertion_sort(testArr, size);
+    std::cout << '\n';
+
+    std::copy(arr, arr + size, testArr);
+    Sorting::cocktail_sort_bubble(testArr, size);
+    std::cout << '\n';
+
+    std::copy(arr, arr + size, testArr);
+    Sorting::selection_sort(testArr, size);
+    std::cout << '\n';
+
+    std::copy(arr, arr + size, testArr);
+    Sorting::cocktail_sort_selection(testArr, size);
+    std::cout << '\n';
+
+    std::copy(arr, arr + size, testArr);
+    Sorting::gnome_sort(testArr, size);
+    std::cout << '\n';
+
+    std::copy(arr, arr + size, testArr);
+    int b[] = { 4, 5, 6, 7, 1, 0, 5, 2, 6, 7 };
+    Sorting::merge(testArr, b, size, size);
+    std::cout << '\n';
+
+    std::copy(arr, arr + size, testArr);
+    Sorting::merge_sort(testArr, size);
+    std::cout << '\n';
+}

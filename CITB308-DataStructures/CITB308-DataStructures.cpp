@@ -8,11 +8,7 @@
 
 int main()
 {
-    //Tests::run();
-    Exercises::ex9();
-    Exercises::ex10();
-    Exercises::ex11();
-    Exercises::ex12();
+    Tests::run();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

@@ -1,8 +1,8 @@
 #pragma once
+#include "Vector.h"
 #include <stdexcept>
 #include <iostream>
 #include <iomanip>
-#include "Vector.h"
 
 template<typename T>
 class LinkedBinaryTree {
@@ -154,11 +154,11 @@ template<typename T>
 std::ostream& operator<<(std::ostream& out, const LinkedBinaryTree<T>& t) {
 	out << "Linked binary tree\n" << "size: " << t.size() << std::endl;
 	t.print();
-	Vector<LinkedBinaryTree<T>::Position> vec = t.positions();;
+	//Vector<LinkedBinaryTree<T>::Position> vec = t.positions();;
 	Vector<T> printVec;
 
-	for (int i = 0; i < vec.size(); i++){
-		printVec.insert_back(*vec[i]);
+	for (int i = 0; i < t.positions().size(); i++){
+		printVec.insert_back(*t.positions()[i]);
 	}
 
 	out << printVec << "\n Euler tour:\n";
