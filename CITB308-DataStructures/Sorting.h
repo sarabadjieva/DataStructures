@@ -1,281 +1,168 @@
 #pragma once
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 class Sorting
 {
 private: 
 
-	static void printArray(int a[], int n)
-	{
-		for (int i = 0; i < n; i++)
-			std::cout<<("%d ", a[i]) << " ";
-		std::cout<<("\n");
-	}
+	static void printArray(int a[], int n);
+	static void count_sort_exp(int arr[], int n, int exp);
+	static int getMax(int arr[], int n);
+	static int partition(int arr[], int low, int high);
+
+	/// <summary>
+	/// best Omega()
+	/// average Theta()
+	/// worst Omicron()
+	/// space complexity Omicron(1)
+	/// </summary>
+	static void heapify(int arr[], int n, int i);
+
 public:
-//BFS breadth-first search
-//DFS depth-first search
 //topological sort
 //scc search
-//dijkstra
-//floyd
 
+	/// <summary>
+	/// best Omega(n)
+	/// average Theta(n^2)
+	/// worst Omicron(n^2)
+	/// space complexity Omicron(1)
+	/// </summary>
+	static void bubble_sort(int arr[], int n);
 
-	static void bubble_sort(int arr[], int n)
-	{
-		printArray(arr, n);
-		bool swapped = false;
-		int tmp;
-		for (int i =  n - 2; i >= 0; i--)
-		{
-			swapped = false;
-			for (int j = 0; j <= i; j++)
-			{
-				if (arr[j] > arr[j + 1])
-				{
-					swapped = true;
-					tmp = arr[j];
-					arr[j] = arr[j + 1];
-					arr[j + 1] = tmp;
-				}
-			}
-			if (!swapped) break;
-		}
-		printArray(arr, n);
-	}
+	/// <summary>
+	/// best Omega(n)
+	/// average Theta(n^2)
+	/// worst Omicron(n^2)
+	/// space complexity Omicron(1)
+	/// </summary>
+	static void insertion_sort(int arr[], int n);
 
-	static void insertion_sort(int arr[], int n)
-	{
-		printArray(arr, n);
-		int j, current_value;
-		for (int i = 1; i < n; i++)
-		{
-			current_value = arr[i];
-			j = i - 1;
-			while (j >= 0 && current_value < arr[j])
-			{
-				arr[j + 1] = arr[j];
-				j--;
-			}
+	/// <summary>
+	/// best Omega()
+	/// average Theta()
+	/// worst Omicron()
+	/// space complexity Omicron()
+	/// </summary>
+	static void cocktail_sort_bubble(int arr[], int n);
 
-			arr[j + 1] = current_value;
-		}
-		printArray(arr, n);
-	}
+	/// <summary>
+	/// best Omega(n^2)
+	/// average Theta(n^2)
+	/// worst Omicron(n^2)
+	/// space complexity Omicron(1)
+	/// </summary>
+	static void selection_sort(int arr[], int n);
+	
+	/// <summary>
+	/// best Omega()
+	/// average Theta()
+	/// worst Omicron()
+	/// space complexity Omicron()
+	/// </summary>
+	static void cocktail_sort_selection(int arr[], int n);
+	
+	/// <summary>
+	/// best Omega()
+	/// average Theta()
+	/// worst Omicron()
+	/// space complexity Omicron()
+	/// </summary>
+	static void gnome_sort(int arr[], int n);
+	
+	/// <summary>
+	/// best Omega()
+	/// average Theta()
+	/// worst Omicron()
+	/// space complexity Omicron(1)
+	/// </summary>
+	static void merge(int a[], int b[], int n, int m);
 
-	static void cocktail_sort_bubble(int arr[], int n)
-	{
-		printArray(arr, n);
-		bool swapped = true;
-		int tmp, start = 0, end = n - 1;
-		
-		while (swapped)
-		{
-			swapped = false;
+	static void merge_arr(int arr[], int l, int m, int r);
 
-			for (int i = start; i < end; i++)
-			{
-				if (arr[i] > arr[i + 1])
-				{
-					tmp = arr[i];
-					arr[i] = arr[i + 1];
-					arr[i + 1] = tmp;
-					swapped = true;
-				}
-			}
+	/// <summary>
+	/// best Omega(nlog(n))
+	/// average Theta(nlog(n))
+	/// worst Omicron(nlog(n))
+	/// space complexity Omicron(n)
+	/// </summary>
+	static void merge_sort(int arr[], int l, int r);
 
-			if (!swapped) break;
-			swapped = false;
-			--end;
+	/// <summary>
+	///marks natural sorted sequences
+	/// best Omega()
+	/// average Theta()
+	/// worst Omicron(n)
+	/// space complexity Omicron()
+	/// </summary>
+	static void natural_merge_sort(int arr[], int n);
 
-			for (int i = end - 1; i >= start; i--)
-			{
-				if (arr[i] > arr[i + 1])
-				{
-					tmp = arr[i];
-					arr[i] = arr[i + 1];
-					arr[i + 1] = tmp;
-					swapped = true;
-				}
-			}
+	/// <summary>
+	/// best Omega(n + k)
+	/// average Theta(n + k)
+	/// worst Omicron(n + k)
+	/// space complexity Omicron(n + k)
+	/// </summary>
+	static void count_sort(int arr[], int n);
 
-			if (!swapped) break;
-			++start;
-		}
-		printArray(arr, n);
-	}
+	/// <summary>
+	/// best Omega(nk)
+	/// average Theta(nk)
+	/// worst Omicron(nk), k - number of bits needed per data
+	/// space complexity Omicron(n + k)
+	/// </summary>
+	static void radix_sort(int arr[], int n);
 
-	static void selection_sort(int arr[], int n)
-	{
-		printArray(arr, n);
-		int iMin, tmp;
-		for (int i = 0; i < n - 1; i++)
-		{
-			iMin = i;
-			for (int j =  i + 1; j < n; j++)
-			{
-				if (arr[iMin] > arr[j])
-				{
-					iMin = j;
-				}
-			}
+	/// <summary>
+	/// best Omega(nlog(n))
+	/// average Theta(nlog(n))
+	/// worst Omicron(nlog(n))
+	/// space complexity Omicron(1)
+	/// </summary>
+	static void heap_sort(int arr[], int n);
 
-			if (i != iMin)
-			{
-				tmp = arr[i];
-				arr[i] = arr[iMin];
-				arr[iMin] = tmp;
-			}
-		}
-		printArray(arr, n);
-	}
+	/// <summary>
+	/// best Omega(log(n))
+	/// average Theta(log(n))
+	/// worst Omicron(log(n))
+	/// space complexity Omicron(1)
+	/// </summary>
+	static int binary_search(int arr[], int low, int high, int v);
 
-	static void cocktail_sort_selection(int arr[], int n)
-	{
-		printArray(arr, n);
-		int tmp, iMin, iMax, start = 0, size = n;
+	/// <summary>
+	/// best Omega()
+	/// average Theta()
+	/// worst Omicron()
+	/// space complexity Omicron()
+	/// </summary>
+	static void binary_insertion_sort(int arr[], int n);
 
-		for (int i = start; i < size / 2 + 1; i++)
-		{
-			iMin = i;
-			iMax = i;
-			for (int j = i; j < n; j++)
-			{
-				if (arr[j] < arr[iMin])
-				{
-					iMin = j;
-				}
+	/// <summary>
+	/// best Omega()
+	/// average Theta()
+	/// worst Omicron()
+	/// space complexity Omicron()
+	/// </summary>
+	static void intro_sort(int arr[], int n);
 
-				if (arr[j] > arr[iMax])
-				{
-					iMax = j;
-				}
-			}
-			
-			if (i != iMin)
-			{
-				tmp = arr[i];
-				arr[i] = arr[iMin];
-				arr[iMin] = tmp;
-			}
+	/// <summary>
+	/// best Omega(nlog(n))
+	/// average Theta(nlog(n))
+	/// worst Omicron(n^2)
+	/// space complexity Omicron(n)
+	/// </summary>
+	static void quick_sort(int arr[], int low, int high);
 
-			if (n - 1 != iMax)
-			{
-				tmp = arr[n - 1];
-				arr[n - 1] = arr[iMax];
-				arr[iMax] = tmp;
-			}
-			n--;
-		}
-		printArray(arr, size);
-	}
+	/// <summary>
+	/// best Omega(n + k)
+	/// average Theta(n + k)
+	/// worst Omicron(n^2)
+	/// space complexity Omicron(n*k). k - buckets
+	/// </summary>
+	static void bucket_sort(int arr[], int n);
 
-	static void gnome_sort(int arr[], int n)
-	{
-		printArray(arr, n);
-		int temp, index = 0;
-		while (index < n)
-		{
-			if (index == 0) index++;
-			if (arr[index] >= arr[index - 1]) index++;
-			else 
-			{
-				index--;
-				temp = arr[index];
-				arr[index] = arr[index + 1];
-				arr[index + 1] = temp;
-			}
-
-		}
-		printArray(arr, n);
-	}
-
-	static void merge(int a[], int b[], int n, int m)
-	{
-		int* c = new int[n+m];
-		int indexA = 0, indexB = 0;
-		for (int i = 0; i < n + m; i++)
-		{
-			if (indexA == n) c[i] = b[indexB++];
-			else if (indexB == m) c[i] = a[indexA++];
-			else if (a[indexA] < b[indexB]) c[i] = a[indexA++];
-			else c[i] = b[indexB++];
-		}
-		printArray(c, n+m);
-	}
-
-	static void merge_sort(int arr[], int n)
-	{
-		if (n <= 1) return;
-
-		int j = 0, mid = n / 2, left = mid, right = n - mid;
-		int* a = new int[left];
-		int* b = new int[right];
-		for (int i = 0; i < n; i++)
-		{
-			if (i < mid)
-			{
-				a[i] = arr[i];
-			}
-			else
-			{
-				b[j] = arr[i];
-				j++;
-			}
-		}
-		merge_sort(a, left);
-		merge_sort(b, right);
-		merge(a, b, left, right);
-	}
-
-	//mark natural sorted sequences
-	static void natural_merge_sort(int arr[], int n)
-	{
-
-
-	}
-
-	static void counting_sort(int arr[], int n)
-	{
-
-	}
-
-	static void radix_sort(int arr[], int n)
-	{
-
-	}
-
-	static void heapify(int arr[], int n, int i)
-	{
-
-	}
-
-	static void heap_sort(int arr[], int n)
-	{
-
-	}
-
-	static void binary_search(int arr[], int n)
-	{
-
-	}
-
-	static void binary_insertion_sort(int arr[], int n)
-	{
-
-	}
-
-	static void intro_sort(int arr[], int n)
-	{
-
-	}
-
-	static void quick_sort(int arr[], int n)
-	{
-
-	}
-
-	static void bucket_sort(int arr[], int n)
-	{
-
-	}
+	//not correct place, but eh.. the archi is trash anyways
+	void MMult(int a[10][15], int b[15][7], int c[10][7]);
 };

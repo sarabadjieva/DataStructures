@@ -15,6 +15,7 @@
 #include "HashMap.h"
 #include "SearchTree.h"
 #include "Sorting.h"
+#include "Graph.h"
 #include <cstdlib>
 
 class Tests
@@ -56,8 +57,11 @@ public:
         std::cout << "--------------------\n";
         testSearchTree();
         std::cout << "--------------------\n";
-        std::cout << "--------------------\n";*/
+        std::cout << "--------------------\n";
         testSorting();
+        std::cout << "--------------------\n";
+        std::cout << "--------------------\n";*/
+        testGraphs();
     }
 
     static void testQueue();
@@ -74,6 +78,7 @@ public:
     static void testSearchTree();
 
     static void testSorting();
+    static void testGraphs();
 
 private:
     static const int testSize = 10;

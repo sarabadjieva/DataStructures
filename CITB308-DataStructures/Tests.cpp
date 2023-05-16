@@ -209,39 +209,128 @@ void Tests::testSearchTree() {
 void Tests::testSorting()
 {
     int size = 10;
-    int arr[] = {1, 9, 2, 7, 6, 4, 3, 8, 5, 1};
+    int arr[] = {1, 9, 2, 7, 6, 43, 6, 8, 5, 1};
     int testArr[10] = {};
 
+    std::cout << "Bubble sort\n";
+    //std::copy(arr, arr + size, testArr);
+    //Sorting::bubble_sort(testArr, size);
+    //std::cout << '\n';
+
+    std::cout << "Insertion sort\n";
+    //std::copy(arr, arr + size, testArr);
+    //Sorting::insertion_sort(testArr, size);
+    //std::cout << '\n';
+
+    std::cout << "Cocktail sort - bubble\n";
+    //std::copy(arr, arr + size, testArr);
+    //Sorting::cocktail_sort_bubble(testArr, size);
+    //std::cout << '\n';
+
+    std::cout << "Selection sort\n";
+    //std::copy(arr, arr + size, testArr);
+    //Sorting::selection_sort(testArr, size);
+    //std::cout << '\n';
+
+    std::cout << "Cocktail sort - selection\n";
+    //std::copy(arr, arr + size, testArr);
+    //Sorting::cocktail_sort_selection(testArr, size);
+    //std::cout << '\n';
+
+    std::cout << "Gnome sort\n";
+    //std::copy(arr, arr + size, testArr);
+    //Sorting::gnome_sort(testArr, size);
+    //std::cout << '\n';
+
+    std::cout << "Merge\n";
+    //std::copy(arr, arr + size, testArr);
+    //int b[] = { 4, 5, 6, 70, 1, 0, 5, 2, 6, 7 };
+    //Sorting::merge(testArr, b, size, size);
+    //std::cout << '\n';
+
+    std::cout << "Merge sort\n";
+    //std::copy(arr, arr + size, testArr);
+    //Sorting::merge_sort(testArr, 0, size - 1);
+    //std::cout << '\n';
+
+    std::cout << "Natural merge sort\n";
+    //std::copy(arr, arr + size, testArr);
+    //Sorting::natural_merge_sort(testArr, size);
+    //std::cout << '\n';
+
+    std::cout << "Count sort\n";
+    //std::copy(arr, arr + size, testArr);
+    //Sorting::count_sort(testArr, size);
+    //std::cout << '\n';
+
+    std::cout << "Radix sort\n";
+    //std::copy(arr, arr + size, testArr);
+    //Sorting::radix_sort(testArr, size);
+    //std::cout << '\n';
+
+    std::cout << "Heap sort\n";
+    //std::copy(arr, arr + size, testArr);
+    //Sorting::heap_sort(testArr, size);
+    //std::cout << '\n';
+
+    std::cout << "Binary insertion sort\n";
     std::copy(arr, arr + size, testArr);
-    Sorting::bubble_sort(testArr, size);
+    Sorting::binary_insertion_sort(testArr, size);
     std::cout << '\n';
 
+    std::cout << "Intro sort\n";
     std::copy(arr, arr + size, testArr);
-    Sorting::insertion_sort(testArr, size);
+    Sorting::intro_sort(testArr, size);
     std::cout << '\n';
 
-    std::copy(arr, arr + size, testArr);
-    Sorting::cocktail_sort_bubble(testArr, size);
-    std::cout << '\n';
+    std::cout << "Quick sort\n";
+    //std::copy(arr, arr + size, testArr);
+    //Sorting::quick_sort(testArr, 0, size - 1);
+    //std::cout << '\n';
 
-    std::copy(arr, arr + size, testArr);
-    Sorting::selection_sort(testArr, size);
-    std::cout << '\n';
+    std::cout << "Bucket sort\n";
+    //std::copy(arr, arr + size, testArr);
+    //Sorting::bucket_sort(testArr, size);
+    //std::cout << '\n';
+}
 
-    std::copy(arr, arr + size, testArr);
-    Sorting::cocktail_sort_selection(testArr, size);
-    std::cout << '\n';
+void Tests::testGraphs()
+{
+    Graph g(4);
+    g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(1, 2);
+    g.addEdge(2, 0);
+    g.addEdge(2, 3);
+    g.addEdge(3, 3);
+    std::cout << "Following is Breadth First Traversal "
+        << "(starting from vertex 2) \n";
+    g.BFS(2);
+    std::cout << "\nFollowing is Depth First Traversal "
+        << "(starting from vertex 2) \n";
+    g.DFS(2);
 
-    std::copy(arr, arr + size, testArr);
-    Sorting::gnome_sort(testArr, size);
-    std::cout << '\n';
+    std::cout << std::endl << std::endl;
+    int V = 9;
+    Graph wG(V);
 
-    std::copy(arr, arr + size, testArr);
-    int b[] = { 4, 5, 6, 7, 1, 0, 5, 2, 6, 7 };
-    Sorting::merge(testArr, b, size, size);
-    std::cout << '\n';
+    // making above shown graph
+    wG.addEdge(0, 1, 4);
+    wG.addEdge(0, 7, 8);
+    wG.addEdge(1, 2, 8);
+    wG.addEdge(1, 7, 11);
+    wG.addEdge(2, 3, 7);
+    wG.addEdge(2, 8, 2);
+    wG.addEdge(2, 5, 4);
+    wG.addEdge(3, 4, 9);
+    wG.addEdge(3, 5, 14);
+    wG.addEdge(4, 5, 10);
+    wG.addEdge(5, 6, 2);
+    wG.addEdge(6, 7, 1);
+    wG.addEdge(6, 8, 6);
+    wG.addEdge(7, 8, 7);
 
-    std::copy(arr, arr + size, testArr);
-    Sorting::merge_sort(testArr, size);
-    std::cout << '\n';
+    wG.dijkstra(0);
+
+    wG.floyd();
 }
