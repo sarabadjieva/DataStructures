@@ -141,7 +141,9 @@
   <ItemGroup>
     <ClCompile Include="CITB308-DataStructures.cpp" />
     <ClCompile Include="Exercises.cpp" />
+    <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Iterator.cpp" />
+    <ClCompile Include="Sorting.cpp" />
     <ClCompile Include="Tests.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +154,7 @@
     <ClInclude Include="Deque.h" />
     <ClInclude Include="Exercises.h" />
     <ClInclude Include="GenericException.h" />
+    <ClInclude Include="Graph.h" />
     <ClInclude Include="HashMap.h" />
     <ClInclude Include="HeapPriorityQueue.h" />
     <ClInclude Include="LinkedBinaryTree.h" />
@@ -162,6 +165,7 @@
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="SearchTree.h" />
+    <ClInclude Include="Sorting.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="Tests.h" />
     <ClInclude Include="Tree.h" />
